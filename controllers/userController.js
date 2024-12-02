@@ -59,6 +59,7 @@ const authenticatedUser = async (req, res) => {
         const userOfAuth = await User.findOne({ email }).exec();
         
         if (!userOfAuth) {
+            console.log({ message: 'Usuario não encontrado!' });
             return res.status(401).json({ message: 'Usuário não encontrado!' });
         }
 
@@ -78,7 +79,7 @@ const authenticatedUser = async (req, res) => {
             return res.status(200).json(userRetorno);
         } else {
             console.log({ message: 'Senha incorreta!' });
-            return res.status(401).json("A senha está incorreta!");
+            return res.status(401).json({ message: 'Senha incorreta!' });
         }
     } catch (error) {
         console.error('Erro na autenticação:', error);
