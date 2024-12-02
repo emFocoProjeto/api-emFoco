@@ -4,7 +4,13 @@ const app = express();
 require("dotenv").config();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+const corsOptions = {
+  origin: "*",  // Isso permite todas as origens.
+  methods: ["GET", "POST", "PUT", "DELETE"],  // Métodos permitidos
+  allowedHeaders: ["Content-Type", "Authorization"],  // Cabeçalhos permitidos
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 /** Token
@@ -22,7 +28,7 @@ app.use(
       path: ["/api/user", "/api/user/auth"]
   })
 );
-*/
+**/
 
 // DB Connection
 const conection = require("./db/conection");
