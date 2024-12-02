@@ -78,6 +78,7 @@ const authenticatedUser = async (req, res) => {
             return res.status(200).json(userRetorno);
         } else {
             console.log({ message: 'Senha incorreta!' });
+            return res.status(401).json("A senha está incorreta!");
         }
     } catch (error) {
         console.error('Erro na autenticação:', error);
