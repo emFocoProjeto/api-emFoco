@@ -117,4 +117,4 @@ const updateFoco = async (req, res) => {
 };
 
 
-module.exports = { createFoco, getAllFoco, getOneFoco, deleteFoco, updateFoco };
+module.exports = { createFoco, getAllFoco, getLength, getOneFoco, deleteFoco, updateFoco };
