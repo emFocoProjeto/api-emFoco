@@ -6,6 +6,7 @@ const path = require('path');
 
 routes.post("/focos", upload.single("imageFile"),  focoController.createFoco);
 routes.get("/focos", focoController.getAllFoco);
+routes.get("/focoCad", focoController.getLength);
 routes.get("/focos/:id", focoController.getOneFoco);
 routes.get('/foco/image/:filename', (req, res) => {
   const filename = req.params.filename;
