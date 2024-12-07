@@ -37,6 +37,17 @@ const getAllFoco = async (req, res) => {
   }
 };
 
+const getLength = async (req, res) => {
+  try {
+    const focos = await FocoModel.find();
+    console.log(`{focos.length} focos encontrados com sucesso`);
+    res.status(200).json(focos.length);
+  } catch (error) {
+    console.log(`Erro ao buscar focos: ${error}`);
+    res.status(500).json({ message: 'Erro ao buscar focos!' });
+  }
+};
+
 const getOneFoco = async (req, res) => {
   try {
     const id = req.params.id;
